@@ -25,20 +25,16 @@ body {
   justify-content: space-between;
 }
 
-.fact-form {
-  background-color: #44403c;
-  margin-bottom: 40px;
-  padding: 16px 32px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border-radius: 16px;
-}
-
 .main {
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ELEMENTS */
@@ -113,8 +109,6 @@ h1 {
   background-color: #292524;
 }
 
-
-
 .tag {
   text-transform: uppercase;
   font-size: 14px;
@@ -184,8 +178,20 @@ ul {
   background-image: none;
 }
 
+/* FORM */
+.fact-form {
+  background-color: #44403c;
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+}
+
 .fact-form input,
 select {
+  width: 220px;
   background-color: #78716c;
   border: none;
   border-radius: 100px;
@@ -206,4 +212,20 @@ select {
   font-weight: 600;
   font-size: 18px;
   margin-right: 18px;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding 32px 48px;
+  }
+
+  .fact-form {
+    flex-direction: column;
+    align-items: stretch;
+
+  }
+  .fact-form input,
+  select {
+    width: auto;
+}
 }
