@@ -56,7 +56,7 @@ function createFactsList(dataArray) {
   </li>`
   );
   console.log(htmlArr);
-  const html = htmlArr.join("");
+  const html = htmlArr.join(""); //Note the join
 }
 
 //Toggle Form Visibility
