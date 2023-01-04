@@ -1,3 +1,4 @@
+// @ts-nocheck
 // console.log("Hello world!");
 
 //Selecting DOM elements
@@ -41,8 +42,26 @@ const initialFacts = [
 
 //Create DOM elements: Render facts in list
 factsList.innerHTML = "";
-createFactsList(initialFacts);
 
+//Load data from Supabase
+loadFacts();
+
+async function loadFacts() {
+  const res = await fetch(
+    "https://kzqpbmjndqbliztpghgo.supabase.co/rest/v1/facts",
+    {
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6cXBibWpuZHFibGl6dHBnaGdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzIwNDQxNDUsImV4cCI6MTk4NzYyMDE0NX0.RBuK8kQDm1x1q1mapMklKcAi7MJr5XuvJ9aedsqyYN8",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6cXBibWpuZHFibGl6dHBnaGdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzIwNDQxNDUsImV4cCI6MTk4NzYyMDE0NX0.RBuK8kQDm1x1q1mapMklKcAi7MJr5XuvJ9aedsqyYN8",
+      },
+    }
+  );
+  const data = await res.json();
+  console.log(data);
+}
+// createFactsList(initialFacts);
 function createFactsList(dataArray) {
   // factsList.insertAdjacentHTML("afterbegin", html);
 
