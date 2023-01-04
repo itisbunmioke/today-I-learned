@@ -59,32 +59,32 @@ async function loadFacts() {
     }
   );
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
+  createFactsList(data);
 }
 // createFactsList(initialFacts);
 function createFactsList(dataArray) {
-  // factsList.insertAdjacentHTML("afterbegin", html);
-
   const htmlArr = dataArray.map(
     (fact) => `<li class="fact">
     <p>
-      ${fact.text}
-      <a class="source" href="${fact.source}" target="_blank">(Source)</a>
-     </p>
+    ${fact.text}
+    <a class="source" href="${fact.source}" target="_blank">(Source)</a>
+    </p>
     <span class="tag" style="background-color: #3b82f6">${fact.category}</span>
-  </li>`
+    </li>`
   );
   console.log(htmlArr);
   const html = htmlArr.join(""); //Note the join
+  factsList.insertAdjacentHTML("afterbegin", html);
 }
 
 //Toggle Form Visibility
 btn.addEventListener("click", function () {
   if (form.classList.contains("hidden")) {
     form.classList.remove("hidden");
-    btn.innerText = "Close";
+    btn.textContent = "Close";
   } else {
     form.classList.add("hidden");
-    btn.innerText = "Share a Fact";
+    btn.textContent = "Share a Fact";
   }
 });
